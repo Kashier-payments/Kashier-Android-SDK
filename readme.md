@@ -31,12 +31,12 @@ run your business.
 
 ## Features
 
-- Pay via kashier Payment API
-- Save user Card as Token (Perm/Temp)
-- List user Cards
-- Pay & Save Card via kashier API (One Action)
-- Pay With Token via API (Perm/Temp)
-<!-- - Pay via Kashier Form. (Coming Soon) -->
+- Pay via kashier Payment API.
+- Save user Card as Token (Perm/Temp).
+- List user Cards.
+- Pay & Save Card via kashier API (One Action).
+- Pay With Token via API (Perm/Temp).
+- Pay via Kashier Form.
 
 # Getting Started
 
