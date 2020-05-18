@@ -158,7 +158,7 @@ There are 2 Types of [tokens](#TOKEN_VALIDITY)
 - **Permanent**: Card data is Saved at Kashier, can be used for any future transactions
 
 ```Java
-saveShopperCard(
+Kashier.saveShopperCard(
    Card cardData,
    String shopperReference,
    TOKEN_VALIDITY tokenValidity,
@@ -509,7 +509,7 @@ Kashier.callPaymentAPI(
 To pay with a quick payment form, you can use one of the following APIs
 
 ```java
-startPaymentActivity(
+Kashier.startPaymentActivity(
    Context context,
    String shopperReference,
    String orderId,
@@ -520,7 +520,7 @@ startPaymentActivity(
 OR
 
 ```java
-startPaymentActivity(
+Kashier.startPaymentActivity(
    Context context,
    String shopperReference,
    String orderId,
@@ -532,7 +532,7 @@ startPaymentActivity(
 OR
 
 ```java
-startPaymentActivity(
+Kashier.startPaymentActivity(
    Context context,
    String shopperReference,
    String orderId,
