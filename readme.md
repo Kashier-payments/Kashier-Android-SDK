@@ -44,7 +44,7 @@ run your business.
 
 You’ll need an **API Key**, and a **Merchant ID**.
 
-To geth both
+To get both
 To get those 2 items:
 
 - Login to your [dashboard](https://merchant.kashier.io/en/login)
@@ -95,7 +95,7 @@ dependencies {
 
 ```Java
 dependencies {
-    implementation(name: ‘Kashier_Payment_SDK_1.0.1’, ext: 'aar')
+    implementation(name: ‘Kashier_Payment_SDK_1.0.2’, ext: 'aar')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -145,7 +145,7 @@ Kashier.init(MainActivity.this, merchantId, ApiKeyId, currency, SDK_MODE.DEVELOP
 | merchantId  | String                         | [Merchant ID](#Prerequisites)               |
 | apiKey      | String                         | [API Key](#Prerequisites)                   |
 | sdkMode     | [SDK_MODE](#SDK_MODE)          | To switch between testing and live modes    |
-| currency    | [CURRENCY?](#CURRENCY)         | Currently only supports EGP                 |
+| currency    | [CURRENCY?](#CURRENCY)         | We Support ISO currencies(EGP, USD, GBP, EUR)                 |
 | displayLang | [DISPLAY_LANG?](#DISPLAY_LANG) | To get the translated message from response |
 
 # Save Shopper Card
@@ -567,9 +567,7 @@ John Doe
 | Test Cards | Card Number      | 3-D Secure Enabled |
 | ---------- | ---------------- | ------------------ |
 | MasterCard | 5123450000000008 | Yes                |
-|            | 2223000000000007 | Yes                |
 |            | 5111111111111118 | No                 |
-|            | 2223000000000023 | No                 |
 | Visa       | 4508750015741019 | Yes                |
 |            | 4012000033330026 | No                 |
 
@@ -607,7 +605,6 @@ public enum SDK_MODE {
   PRODUCTION
 }
 ```
-
 ### DISPLAY_LANG
 
 ```jAVA
@@ -616,15 +613,6 @@ public enum SDK_MODE {
 		 EN = "en"
 	}
 ```
-
-### CURRENCY
-
-```JAVA
-	public enum CURRENCY {
-	   EGP = "EGP"
-	}
-```
-
 ### RESPONSE_STATUS
 
 ```JAVA
