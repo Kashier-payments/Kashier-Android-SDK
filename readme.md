@@ -541,10 +541,10 @@ Kashier.startPaymentActivity(
 
 
 # Payment with Custom Form
-![Payment With Custom Form](Docs/02-CUSTOM-PAYMENT-FORM.png)
 To pay using a customized Form, It can be achieved using one of the following methods: 
 * Use [Payment with Card](#Payment-with-Card) with your own UI.
-* Use Kashier payment form with the pre-defined field validation and error handling, with your customized XML file
+* Use Kashier payment form with the pre-defined field validation and error handling, with your customized XML file![Payment With Custom Form](Docs/02-CUSTOM-PAYMENT-FORM.png)
+
 
 To use your own custom XML file, you can use
 
@@ -564,7 +564,7 @@ Kashier.startPaymentActivity(
    String amount,
    UserCallback<PaymentResponse> paymentTransactionsCallback)
 ```
-The custom XML should follow the same template used in [Kashier Payment Form](activity_payment_example.xml) available in this repo
+The custom XML should follow the same template used in [Kashier Payment Form XML](activity_payment_example.xml) available in this repo
 
  - Make sure that each element in the example XML with **android:id** attribute keeps its type.
 
