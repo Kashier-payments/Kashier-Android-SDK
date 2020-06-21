@@ -564,7 +564,7 @@ Kashier.startPaymentActivity(
    String amount,
    UserCallback<PaymentResponse> paymentTransactionsCallback)
 ```
-The custom XML should follow the same template used in [Kashier Payment Form](#activity_payment_example.xml) available in this repo
+The custom XML should follow the same template used in [Kashier Payment Form](activity_payment_example.xml) available in this repo
 
  - Make sure that each element in the example XML with **android:id** attribute keeps its type.
 
