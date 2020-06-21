@@ -21,6 +21,7 @@ run your business.
   - [Pay with Perm Token](#Pay-With-Perm-Token)
 - [Payment with Card](#Payment-with-Card)
 - [Payment With Form](#Payment-with-form)
+- [Payment With Custom Form](#Payment-with-Custom-Form)
 - [Testing Data](#Testing-Data)
   - [Card Holder Name](#Card-Holder-Name)
   - [Test Cards](#Test-Cards)
@@ -504,7 +505,7 @@ Kashier.callPaymentAPI(
 
 # Payment with Form
 
-![Copy Items](Docs/01-Example-FORM.png)
+![Payment With Kashier Form](Docs/01-Example-FORM.png)
 
 To pay with a quick payment form, you can use one of the following APIs
 
@@ -525,21 +526,8 @@ Kashier.startPaymentActivity(
    String shopperReference,
    String orderId,
    String amount,
-   UserCallback<PaymentResponse> userCallback,
-   @Nullable PaymentActivityConfig paymentActivityConfig)
-```
-
-OR
-
-```java
-Kashier.startPaymentActivity(
-   Context context,
-   String shopperReference,
-   String orderId,
-   String amount,
    UserCallback<PaymentResponse> paymentTransactionsCallback,
-   @Nullable Card card,
-   @Nullable PaymentActivityConfig paymentActivityConfig)
+   @Nullable Card card)
 ```
 
 | Parameters            | Type                                 | Description                                                  |
@@ -550,7 +538,35 @@ Kashier.startPaymentActivity(
 | amount                | String                               | Amount as a string, with max 2 Decimal digits                |
 | shopperReference      | String                               | User Unique ID in your system                                |
 | paymentCallback       | paymentCallback | Callback that returns success or failure for the payment     |
-| paymentActivityConfig | paymentActivityConfig                | Can be used to pass config                                   |
+
+
+# Payment with Custom Form
+![Payment With Custom Form](Docs/02-CUSTOM-PAYMENT-FORM.png)
+To pay using a customized Form, It can be achieved using one of the following methods: 
+* Use [Payment with Card](#Payment-with-Card) with your own UI.
+* Use Kashier payment form with the pre-defined field validation and error handling, with your customized XML file
+
+To use your own custom XML file, you can use
+
+```java
+public static void setPaymentActivityCustomLayout(int paymentActivityCustomLayout)
+```
+
+## Example 
+```java
+//This can be called once after Kashier.init()
+Kashier.setPaymentActivityCustomLayout(R.layout.custom_payment_form);
+
+Kashier.startPaymentActivity(
+   Context context,
+   String shopperReference,
+   String orderId,
+   String amount,
+   UserCallback<PaymentResponse> paymentTransactionsCallback)
+```
+The custom XML should follow the same template used in [Kashier Payment Form](#activity_payment_example.xml) available in this repo
+
+ - Make sure that each element in the example XML with **android:id** attribute keeps its type.
 
 # Testing Data
 
