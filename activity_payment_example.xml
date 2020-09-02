@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/Button">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title="@string/title_payment"
+                app:titleTextColor="#ffff" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:background="#fff"
+                android:clickable="false"
+                android:orientation="vertical"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="5px"
+                app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+                tools:context="com.example.paymentsdk.MainActivity">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="25dp"
+                    android:layout_marginVertical="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="5dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/lbl__you_can_pay_with"
+                        android:textColor="@color/inputFocus"
+                        android:textSize="12dp" />
+
+                    <!--                Dummy view, to make the grid layout for card types aligned right-->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <GridLayout
+                        android:id="@+id/availableCardsList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right">
+                        <!--Available cards are added here, from code-->
+                    </GridLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25px"
+                    android:text="@string/lbl__card_info"
+                    android:textColor="@color/Button"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+
+                <!--
+                For arabic
+                in Layout, set
+                                android:textDirection="rtl"
+                                android:layoutDirection="rtl"
+
+                in EditText, set
+                      android:gravity="right"
+                -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lyt_CardHolderName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/card_hint__name"
+                    android:paddingVertical="30sp"
+                    android:textColorHint="@color/hint"
+                    android:theme="@style/AppTheme"
+                    app:errorTextAppearance="@style/error_appearance"
+                    app:hintTextAppearance="@style/hint_text_appearance">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/textInput_CardHolderName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:ems="10"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:maxLength="80"
+                        android:state_focused="true"
+                        android:textColor="@color/inputFocus"
+                        android:textSize="16sp"
+                        android:theme="@style/MyEditTextStyle" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lyt_CardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lbl__card_number"
+                    android:orientation="horizontal"
+                    android:textColorHint="@color/hint"
+                    android:theme="@style/MyEditTextStyle"
+                    app:errorTextAppearance="@style/error_appearance">
+
+                    <EditText
+                        android:id="@+id/textInput_CardNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:ems="10"
+                        android:imeOptions="actionNext"
+                        android:inputType="date"
+                        android:maxLength="19"
+                        android:textColor="@color/inputFocus"
+                        android:textSize="14sp"
+                        tools:layout_editor_absoluteX="85dp"
+                        tools:layout_editor_absoluteY="25dp"
+                        tools:targetApi="26" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingVertical="20dp"
+                    tools:targetApi="o">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/lyt_CardExpiryDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl__exp_data"
+                        android:textColorHint="@color/hint"
+                        android:theme="@style/MyEditTextStyle"
+                        app:errorEnabled="true"
+                        app:errorTextAppearance="@style/error_appearance">
+
+                        <EditText
+                            android:id="@+id/textInput_CardExpiryDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ems="10"
+                            android:imeOptions="actionNext"
+                            android:inputType="date"
+                            android:maxLength="5"
+                            android:singleLine="true"
+                            android:textColor="@color/inputFocus"
+                            android:textSize="14sp"
+                            android:theme="@style/MyEditTextStyle"
+                            tools:layout_editor_absoluteX="98dp"
+                            tools:layout_editor_absoluteY="142dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/lyt_CardCvv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/lbl__CVV"
+                        android:textColorHint="@color/hint"
+                        android:theme="@style/MyEditTextStyle"
+                        app:errorTextAppearance="@style/error_appearance">
+
+                        <EditText
+                            android:id="@+id/textInput_CardCvv"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:textColor="@color/inputFocus"
+                            android:textSize="14sp"
+                            tools:layout_editor_absoluteX="98dp"
+                            tools:layout_editor_absoluteY="142dp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/chkBox_saveCardData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-7dp"
+                    android:layout_marginLeft="-7dp"
+                    android:padding="0dp"
+                    android:text="@string/chkbox_save_card_data_for_future_payments"
+                    android:textColor="@color/hint"
+                    android:theme="@style/MyCheckbox" />
+
+                <Button
+                    android:id="@+id/PaymentButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginVertical="60dp"
+                    android:background="@color/Button"
+                    android:text="@string/lbl__pay"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="161dp"
+                    tools:layout_editor_absoluteY="487dp" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <FrameLayout
+                android:id="@+id/PaymentProgressIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#8B212121"
+                android:visibility="gone">
+                <!--            android:clickable="true">-->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="16dp"
+                    app:cardBackgroundColor="#ffff"
+                    app:cardElevation="3dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ProgressBar
+                            style="?android:attr/progressBarStyleLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:indeterminate="true"
+                            android:indeterminateTint="@color/Button"
+                            android:indeterminateTintMode="src_atop" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/lbl__loading"
+                            android:textColor="@color/Button"
+                            android:textSize="26sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+        </FrameLayout>
+    </LinearLayout>
+</ScrollView>
