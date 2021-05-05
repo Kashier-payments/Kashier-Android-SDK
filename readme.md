@@ -96,7 +96,7 @@ dependencies {
 
 ```Java
 dependencies {
-    implementation(name: ‘Kashier_Payment_SDK_1.0.2’, ext: 'aar')
+    implementation(name: ‘Kashier_Payment_SDK_1.0.3’, ext: 'aar')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
