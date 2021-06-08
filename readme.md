@@ -149,6 +149,16 @@ Kashier.init(MainActivity.this, merchantId, ApiKeyId, currency, SDK_MODE.DEVELOP
 | currency    | [CURRENCY?](#CURRENCY)         | We Support ISO currencies(EGP, USD, GBP, EUR)                 |
 | displayLang | [DISPLAY_LANG?](#DISPLAY_LANG) | To get the translated message from response |
 
+
+
+# Add your Connected Accounts(SubMerchents)
+use this Method after initialize to set your Connected Accounts as Obj and it will send with any checkout request
+
+```Java
+Kashier.setConnectedAccount(new Connected_Accounts("MID-722-350"));
+```
+
+
 # Save Shopper Card
 
 Use this API to save a user card (Create a token), for later usage as [Pay With Token](#Pay-With-Token)
